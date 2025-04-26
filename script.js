@@ -1,10 +1,5 @@
 const humanScore = 0;
 const computerScore = 0;
-const humanSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
-
-
 
 function getComputerChoice(){
     const options =  ["rock", "paper", "scissors"];
@@ -16,7 +11,11 @@ console.log(getComputerChoice());
 
 function getPlayerChoice(){
     const choices = prompt("rock, paper, or scissors?");
-    return choices;
+    if (choices) {
+        return choices.toLowerCase();
+    }else {
+        return null;
+    }
 }
 console.log(getPlayerChoice());
 
@@ -24,5 +23,8 @@ function playRound(humanChoice, computerChoice){
     
 }
 
+const humanSelection = getPlayerChoice();
+const computerSelection = getComputerChoice();
+playRound(humanSelection, computerSelection);
 
 console.log(playRound(humanSelection, computerSelection));
