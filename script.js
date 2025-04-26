@@ -1,5 +1,5 @@
-const humanScore = 0;
-const computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice(){
     const options =  ["rock", "paper", "scissors"];
@@ -7,7 +7,6 @@ function getComputerChoice(){
     return options[randomIndex];
 
 }
-console.log(getComputerChoice());
 
 function getPlayerChoice(){
     const choices = prompt("rock, paper, or scissors?");
@@ -17,14 +16,27 @@ function getPlayerChoice(){
         return null;
     }
 }
-console.log(getPlayerChoice());
 
 function playRound(humanChoice, computerChoice){
-    
+    if (humanChoice === computerChoice){
+        console.log("it is a tie");
+    }else if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "scissors" && computerChoice === "paper") ||
+        (humanChoice === "paper" && computerChoice === "rock")
+      ) {
+        console.log("you win");
+        humanScore++;
+      }else {
+        console.log("You lose");
+        computerScore++;
+        
+      }
+      console.log(`player score: ${humanScore}, computer score ${computerScore}`);
 }
+
+    
 
 const humanSelection = getPlayerChoice();
 const computerSelection = getComputerChoice();
 playRound(humanSelection, computerSelection);
-
-console.log(playRound(humanSelection, computerSelection));
